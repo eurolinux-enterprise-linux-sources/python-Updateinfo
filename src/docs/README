@@ -1,0 +1,52 @@
+This package contains a few useful tools for helping understand how to create
+the updateinfo.xml.  You can review 'example.py' or 'helper_example.py' for
+the expected method of interaction.
+
+You can review the updateinfo.xsd for how exactly this package understands the
+structure of the updateinfo.xml file.
+
+But what about using this object to read in an updateinfo.xml and extract data
+from there?
+
+Well that shouldn't be too bad - for the most part everything responds nicely
+to the 'for' loop.
+
+It would be a wasted effort to document every avalible information piece of
+these objects, so I will direct you to the documentation of each object's
+__init__ function where relevant metainfo variables are listed for each item.
+Please do not alter them outside of the specified 'set' functions as they often
+do more that simply alter the values.
+
+
+
+Techniques of data access for updateinfo objects:
+
+Each Updateinfo object can be itterated through like a list for getting to
+each entry within the object.
+    for entry in updateinfo:
+        <manip entry>
+
+Each Entry object can be itterated through like a list for getting to each
+collection within the object.
+    for collection in entry:
+        <manip collection>
+
+Each Collection object can be itterated through like a list for getting to each
+package within the object.
+    for package in collection:
+        <manip package>
+
+For getting to a Reference object, things are a bit more messy. You can get a
+list of all references with Entry.list_references() and access a particular
+reference with Entry.get_reference(refurl).  You must remove the entry if you
+want to make changes to it and then add it back in again
+
+   for refurl in Entry.list_references():
+       myref = Entry.get_reference(refurl)
+       Entry.del_reference(refurl)
+       <manip myref>
+       Entry.add_reference_obj(myref)
+
+
+Each object has its 'help' information filled out in detail.  Please review
+that documentation as it will help clarify how things fit together.

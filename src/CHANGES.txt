@@ -1,0 +1,7 @@
+v0.0.1, Aug 30 2012 -- Initial release.
+v0.1.0, Sep 07 2012 -- now with lxml validation
+v0.1.1, Sep 17 2012 -- now with pretty printing, expanded xsd, repocontrol, and more fields
+v0.1.2, Sep 19 2012 -- now with a skeleton object for easily automation
+v0.1.3, Sep 21 2012 -- now with UTF-8
+v0.1.4, Sep 25 2012 -- separation between your ID and TUV ID in helper
+v0.1.5, Sep 25 2012 -- now with easy merge to unify various updateinfo.xmls
